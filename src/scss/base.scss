@@ -1,0 +1,38 @@
+/**
+ * Copyright (c) 2020 Guasam
+ *
+ * All information here is distributed under the GPLv3 License
+ * This is a Copyleft License that gives the user the right to,
+ * use copy and modify the code freely for non-commercial purposes
+ *
+ * @author : Guasam
+ * @package : Base Styles
+*/
+
+/*
+ *-------------------------------------
+ * Reset
+ *-------------------------------------
+*/
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0
+}
+
+abbr {
+  cursor: help;
+}

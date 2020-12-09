@@ -1,0 +1,77 @@
+/**
+ * Copyright (c) 2020 Guasam
+ *
+ * All information here is distributed under the GPLv3 License
+ * This is a Copyleft License that gives the user the right to,
+ * use copy and modify the code freely for non-commercial purposes
+ *
+ * @author : Guasam
+ * @package : Compress My CSS Styles
+*/
+
+/*
+ *-------------------------------------
+ * Imports
+ *-------------------------------------
+*/
+@import './base.scss';
+
+/*
+ *-------------------------------------
+ * Application
+ *-------------------------------------
+*/
+
+.GRoot {
+  * {
+    box-sizing: border-box;
+  }
+
+  --bodyBg: #fbfbff;
+  --headerBg: #e6e9ff;
+  --logoColor: #606697;
+  --footerBg: #7177a4;
+  --footerColor: #eaedff;
+}
+
+.GBody {
+  background: var(--bodyBg);
+}
+
+.GCanvas {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  height: 100vh;
+  margin: 0 auto;
+  box-shadow: 0 0 1rem #7177a429;
+  height: 100vh;
+}
+
+.GHeader {
+  padding: 2rem;
+  background: var(--headerBg);
+
+  &__siteName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--logoColor);
+    font-family: "Calibri", sans-serif;
+  }
+}
+
+.GMain {
+  flex: 1;
+  padding: 2rem;
+}
+
+.GFooter {
+  background: var(--footerBg);
+  padding: 2rem;
+  color: var(--footerColor);
+}
+
+.GTeaser {
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
