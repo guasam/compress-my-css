@@ -44,10 +44,11 @@ export default {
       savings: 0,
       inputCss: sampleInputCss.trim(),
       outputCss: "",
+      submitted: false,
     };
   },
   updated() {
-    this.doCompress();
+    if (this.submitted) this.doCompress();
   },
   methods: {
     doCompress() {
@@ -98,6 +99,7 @@ export default {
       this.inputBytes = new TextEncoder().encode(inputCss).length;
       this.outputBytes = new TextEncoder().encode(css).length;
       this.savings = (100 - (this.outputBytes / this.inputBytes) * 100).toFixed(2);
+      this.submitted = true;
       this.outputCss = css;
     },
   },
