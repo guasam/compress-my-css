@@ -1,6 +1,6 @@
 <template>
   <div><label class="GLabel">Input CSS Code</label></div>
-  <textarea v-model="inputCss"></textarea>
+  <textarea v-model="inputCss" spellcheck="false"></textarea>
 
   <div class="GConfig">
     <div class="GConfigControls">
