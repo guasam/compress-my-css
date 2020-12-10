@@ -135,6 +135,10 @@ export default {
 
       let css = inputCss;
 
+      // 👀 Kachu maal bharo v hai ke nahi
+      // Got any css ?
+      if (!css) return alert("Woaah...😮 not gonna happen!");
+
       // Remove newlines
       css = css.replace(/(\r\n|\n|\r|\t)/gm, "");
 
