@@ -1,6 +1,10 @@
 <template>
   <div><label class="GLabel">Input CSS Code</label></div>
-  <textarea v-model="inputCss" spellcheck="false"></textarea>
+  <textarea
+    v-model="inputCss"
+    spellcheck="false"
+    @focus="onTextareaFocus"
+  ></textarea>
 
   <div class="GConfig">
     <div class="GConfigControls">
@@ -9,23 +13,27 @@
       </div>
       <div class="FieldCheckBox">
         <input type="checkbox" v-model="config.endSemicolon" />
-        Remove Ending Semicolon ({{ config.endSemicolon }})
+        Remove Ending Semicolon
       </div>
       <div class="FieldCheckBox">
         <input type="checkbox" v-model="config.stacked" />
-        Stacked Lining ({{ config.stacked }})
+        Stacked Rules / Lines
       </div>
       <div class="FieldCheckBox" v-if="config.stacked">
         <input type="checkbox" v-model="config.indent" />
-        Indent Props ({{ config.indent }})
+        Indent Properties
       </div>
       <div class="FieldCheckBox">
         <input type="checkbox" v-model="config.spacedSelector" />
-        Spaced Selector ({{ config.spacedSelector }})
+        Space After Selector
       </div>
       <div class="FieldCheckBox">
         <input type="checkbox" v-model="config.comments" />
-        Remove Comments ({{ config.comments }})
+        Remove Comments
+      </div>
+      <div class="FieldCheckBox">
+        <input type="checkbox" v-model="config.live" />
+        Live Editing
       </div>
     </div>
     <div class="GConfigReport">
@@ -71,6 +79,7 @@ export default {
         endSemicolon: false,
         stacked: false,
         indent: false,
+        live: false,
       },
       inputBytes: 0,
       outputBytes: 0,
@@ -85,6 +94,9 @@ export default {
     if (this.submitted) this.doCompress();
   },
   methods: {
+    onTextareaFocus() {
+      if (this.submitted && !this.config.live) this.submitted = false;
+    },
     applyIndent(css) {
       // Extract rules from css
       const rules = css.match(/\{.+?\}/gm);
