@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import { sampleInputCss } from "./utils/samples";
+//import { sampleInputCss } from "./utils/samples";
 
 export default {
   name: "App",
@@ -75,7 +75,8 @@ export default {
       inputBytes: 0,
       outputBytes: 0,
       savings: 0,
-      inputCss: sampleInputCss.trim(),
+      // inputCss: sampleInputCss.trim(),
+      inputCss: "",
       outputCss: "",
       submitted: false,
     };
