@@ -21,9 +21,9 @@ body {
 }
 
 /************************************************************************/
-/* IP.Board 3 CSS - By Rikki Tissier - (c)2008 Invision Power Services	*/
+/* Santino Marella with The Undertaker	*/
 /************************************************************************/
-/* ipb_calendar.css - Calendar specific styles							*/
+/* Heavy weight championship match						*/
 /************************************************************************/
 
 .calendar_title { display: inline; float: left; }
