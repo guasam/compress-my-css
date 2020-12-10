@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "NODE_ENV=production vite build"
+    "build": "vite build",
+    "deploy": "NODE_ENV=production vite build"
   },
   "dependencies": {
     "vue": "^3.0.4"
