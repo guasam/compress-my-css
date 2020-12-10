@@ -28,6 +28,7 @@
   }
 
   --bodyBg: #fbfbff;
+  --bodyColor: #1c1c1c;
   --headerBg: #e6e9ff;
   --logoColor: #606697;
   --footerBg: #7177a4;
@@ -36,6 +37,7 @@
 
 .GBody {
   background: var(--bodyBg);
+  color: var(--bodyColor);
 }
 
 .GCanvas {
@@ -81,6 +83,110 @@ textarea {
   border-radius: 4px;
   outline-color: #aeb4e6;
   padding: 0.5rem;
-  width: 70%;
+  width: 100%;
   height: 200px;
+  margin-bottom: 1rem;
+}
+
+.GLabel {
+  font-weight: bold;
+  color: #848ab2;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.GButton {
+  display: inline-block;
+  border: 0px;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  background: #7f83b2;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background: #7175a5;
+  }
+}
+
+.GConfig {
+  display: flex;
+
+  &Controls {
+    flex: 1;
+  }
+
+  .GButton {
+    min-width: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .FieldCheckBox {
+    margin-top: 0.5rem;
+  }
+}
+
+.GCheckBox {
+  display: inline-flex;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__mark {
+    fill: #fff;
+  }
+
+  &__outer {
+    fill: #cccfe6;
+  }
+
+  &:hover:not(.GCheckBox__active) {
+    .GCheckBox__outer {
+      fill: #a1a7cd;
+    }
+  }
+
+  &__active {
+    .GCheckBox__outer {
+      fill: #606697;
+    }
+  }
+}
+
+.GConfigReportItem {
+  background: #fff;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  box-shadow: 0 0 4px #0000001f;
+  border-radius: 4px;
+  min-width: 120px;
+  margin-left: 1rem;
+
+  &__value {
+    font-family: Calibri;
+    font-size: 1.5rem;
+  }
+
+  &__title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #7f83b2;
+    margin-top: 1rem;
+  }
+
+  .percent {
+    font-size: 1rem;
+    margin-left: 2px;
+  }
 }

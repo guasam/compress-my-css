@@ -1,35 +1,60 @@
 <template>
+  <div><label class="GLabel">Input CSS Code</label></div>
   <textarea v-model="inputCss"></textarea>
+
+  <div class="GConfig">
+    <div class="GConfigControls">
+      <div>
+        <button @click="doCompress" class="GButton">Submit CSS</button>
+      </div>
+      <div class="FieldCheckBox">
+        <input type="checkbox" v-model="config.endSemicolon" />
+        Remove Ending Semicolon ({{ config.endSemicolon }})
+      </div>
+      <div class="FieldCheckBox">
+        <input type="checkbox" v-model="config.stacked" />
+        Stacked Lining ({{ config.stacked }})
+      </div>
+      <div class="FieldCheckBox" v-if="config.stacked">
+        <input type="checkbox" v-model="config.indent" />
+        Indent Props ({{ config.indent }})
+      </div>
+      <div class="FieldCheckBox">
+        <input type="checkbox" v-model="config.spacedSelector" />
+        Spaced Selector ({{ config.spacedSelector }})
+      </div>
+      <div class="FieldCheckBox">
+        <input type="checkbox" v-model="config.comments" />
+        Remove Comments ({{ config.comments }})
+      </div>
+    </div>
+    <div class="GConfigReport">
+      <section>
+        <div class="GConfigReportItem">
+          <div class="GConfigReportItem__value">{{ inputBytes }}</div>
+          <div class="GConfigReportItem__title">Input Bytes</div>
+        </div>
+        <div class="GConfigReportItem">
+          <div class="GConfigReportItem__value">{{ outputBytes }}</div>
+          <div class="GConfigReportItem__title">Output Bytes</div>
+        </div>
+        <div class="GConfigReportItem">
+          <div class="GConfigReportItem__value">
+            {{ savings }}<span class="percent">%</span>
+          </div>
+          <div class="GConfigReportItem__title">Total Saving</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
   <br />
-  <button @click="doCompress">Submit</button>
-  <fieldset>
-    <div>
-      <input type="checkbox" v-model="config.endSemicolon" />
-      Remove Ending Semicolon ({{ config.endSemicolon }})
-    </div>
-    <div>
-      <input type="checkbox" v-model="config.stacked" />
-      Stacked Lining ({{ config.stacked }})
-    </div>
-    <div v-if="config.stacked">
-      <input type="checkbox" v-model="config.indent" />
-      Indent Props ({{ config.indent }})
-    </div>
-    <div>
-      <input type="checkbox" v-model="config.spacedSelector" />
-      Spaced Selector ({{ config.spacedSelector }})
-    </div>
-    <div>
-      <input type="checkbox" v-model="config.comments" />
-      Remove Comments ({{ config.comments }})
-    </div>
-    <div>
-      Input Bytes : {{ inputBytes }}, Output Bytes : {{ outputBytes }}, Savings
-      : {{ savings }}%
-    </div>
-  </fieldset>
-  <br />
-  <pre v-text="outputCss"></pre>
+
+  <div v-if="outputCss">
+    <br />
+    <div><label class="GLabel">Output CSS</label></div>
+    <textarea v-model="outputCss" readonly></textarea>
+  </div>
 </template>
 
 <script>
