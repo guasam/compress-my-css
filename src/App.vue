@@ -59,6 +59,39 @@ export default {
     if (this.submitted) this.doCompress();
   },
   methods: {
+    applyIndent(css) {
+      // Extract rules from css
+      const rules = css.match(/\{.+?\}/gm);
+
+      // Loop through every rule
+      rules.forEach((r, index) => {
+        // Remove parantheses, semicolon splitting and clear empty
+        let props = r.slice(1, -1).split(";").filter(Boolean);
+
+        // Loop through properties
+        props = props
+          .map((p, index) => {
+            let indented = "";
+
+            // Remove ending semicolon if needed
+            if (this.config.endSemicolon && index === props.length - 1) {
+              indented = `\t${p}\n`;
+            } else {
+              indented = `\t${p};\n`;
+            }
+
+            // Apply props newline
+            if (index === 0) indented = "\n" + indented;
+            return indented;
+          })
+          .join(" ");
+
+        // Replace css
+        css = css.replace(r, `{${props}}`);
+      });
+
+      return css;
+    },
     doCompress() {
       const { outputCss, inputCss, config } = this;
 
@@ -105,33 +138,7 @@ export default {
 
       // Apply Indent
       if (config.indent) {
-        // Extract rules from css
-        const rules = css.match(/\{.+?\}/gm);
-
-        // Loop through every rule
-        rules.forEach((r, index) => {
-          // Remove parantheses, semicolon splitting and clear empty
-          let props = r.slice(1, -1).split(";").filter(Boolean);
-
-          // Loop through properties
-          props = props.map((p, index) => {
-            let indented = '';
-
-            // Remove ending semicolon if needed
-            if (this.config.endSemicolon && index === props.length - 1) {
-              indented = `\t${p}\n`;
-            } else {
-              indented = `\t${p};\n`;
-            }
-
-            // Apply props newline
-            if (index === 0) indented = "\n" + indented;
-            return indented;
-          }).join(' ');
-
-          // Replace css
-          css = css.replace(r, `{${props}}`);
-        });
+        css = this.applyIndent(css);
       }
 
       // Set Data
