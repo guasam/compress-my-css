@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "deploy": "NODE_ENV=production vite build"
+    "deploy": "NODE_ENV=production vite build",
+    "start": "dNODE_ENV=production vite build"
   },
   "dependencies": {
     "vue": "^3.0.4"
