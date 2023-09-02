@@ -9,7 +9,7 @@
   <div class="GConfig">
     <div class="GConfigControls">
       <div>
-        <button @click="doCompress" class="GButton">Submit CSS</button>
+        <button @click="doCompress" class="GButton">Speed CSS</button>
       </div>
       <div class="FieldCheckBox">
         <input type="checkbox" v-model="config.endSemicolon" />
