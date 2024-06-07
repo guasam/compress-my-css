@@ -4,4 +4,4 @@ Compress My CSS is used to compress CSS source code, snippets to reduce the code
 
 Try : https://guasam.github.io/compress-my-css/
 
-Update
+Update pr
